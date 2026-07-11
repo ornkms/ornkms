@@ -228,6 +228,10 @@ MIX SERVICE
 <span>01</span> / WORKS
 </h3>
 
+<div class="works-container">
+
+<button class="works-arrow left">‹</button>
+
 <div class="works-scroll">
 
 <iframe src="https://www.youtube.com/embed/J2NoUg-p2CY" loading="lazy"></iframe>
@@ -249,6 +253,10 @@ MIX SERVICE
 <iframe src="https://www.youtube.com/embed/my4asGB1124" loading="lazy"></iframe>
 
 <iframe src="https://www.youtube.com/embed/nKpNM2UKhD4" loading="lazy"></iframe>
+
+</div>
+
+<button class="works-arrow right">›</button>
 
 </div>
 
@@ -399,6 +407,29 @@ Math.random() * 0.4 + 0.6;
 document.body.appendChild(snow);
 
 }
+
+const works = document.querySelector(".works-scroll");
+
+document.querySelector(".works-arrow.right")
+.addEventListener("click",()=>{
+
+works.scrollBy({
+left:320,
+behavior:"smooth"
+});
+
+});
+
+
+document.querySelector(".works-arrow.left")
+.addEventListener("click",()=>{
+
+works.scrollBy({
+left:-320,
+behavior:"smooth"
+});
+
+});
 
 </script>
 </body>
