@@ -756,6 +756,17 @@ margin:auto;
 
 /* ===== PRICE CARD ===== */
 
+.price-wrap{
+
+display:flex;
+
+justify-content:center;
+
+padding:20px;
+
+}
+
+
 .price-card{
 
 display:flex;
@@ -773,6 +784,8 @@ border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,.05);
 
 max-width:700px;
+
+width:100%;
 
 margin:auto;
 
@@ -794,9 +807,7 @@ border-radius:12px;
 }
 
 
-
 @media(max-width:768px){
-
 
 .price-card{
 
@@ -811,19 +822,7 @@ width:100%;
 
 }
 
-
 }
-
-.price-wrap{
-
-display:flex;
-
-justify-content:center;
-
-padding:20px;
-
-}
-
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
@@ -1415,7 +1414,7 @@ scroll-snap-type:x mandatory;
 
 .works-scroll iframe{
 
-flex:0 0 300px;
+flex:0 0 280px;
 
 aspect-ratio:16/9;
 
