@@ -34,17 +34,23 @@
 </div>
 
   <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
     <span></span>
     <span></span>
     <span></span>
   </div>
 
   <nav id="nav">
+    <a href="#news">NEWS</a>
     <a href="#profile">PROFILE</a>
     <a href="#cover">COVER</a>
-    <a href="#works">WORKS</a>
-    <a href="#schedule">SCHEDULE</a>
-    <a href="#price">PRICE</a>
+<a href="#schedule">SCHEDULE</a>
+<a href="#service">MIX SERVICE</a>
     <a href="#contact">CONTACT</a>
   </nav>
 
@@ -126,9 +132,9 @@
 
 <h3>倫理</h3>
 
-<p>2025年5月1日歌い手として活動開始。</p>
-<p>2026年5月からMIX師としても活動。</p>
-<p>歌ってみた投稿・ライブ出演・MIX依頼受付中。</p>
+<p>2025年5月1日歌い手として活動開始</p>
+<p>2026年5月からはMIX師としての活動も開始</p>
+<p>ライブ出演・MIX依頼受付中</p>
 
 <div class="sns-links">
 <a href="https://x.com/ornkms">Main X</a>
@@ -174,23 +180,6 @@
 </div>
 </section>
 
-<!-- ===== WORKS ===== -->
-<section id="works" class="fadein">
-
-<h2 class="section-title">MIX WORKS</h2>
-
-<div class="video-grid">
-
-<iframe src="https://www.youtube.com/embed/my4asGB1124"></iframe>
-<iframe src="https://www.youtube.com/embed/iPnDuxcxtJw"></iframe>
-<iframe src="https://www.youtube.com/embed/nKpNM2UKhD4"></iframe>
-<iframe src="https://www.youtube.com/embed/QPWmrfAD4TI"></iframe>
-<iframe src="https://www.youtube.com/embed/-xKeZpd-x00"></iframe>
-
-</div>
-
-</section>
-
 <!-- ===== SCHEDULE ===== -->
 <section id="schedule" class="fadein">
 
@@ -220,16 +209,47 @@
 
 </section>
 
-<!-- ===== PRICE ===== -->
-<section id="price" class="fadein">
 
-<h2 class="section-title">PRICE</h2>
+
+
+<!-- ===== SERVICE ===== -->
+<section id="service" class="fadein">
+
+<h2 class="section-title">
+MIX SERVICE
+</h2>
+
+
+<div class="service-block">
+
+
+<h3>01/WORKS</h3>
+
+<div class="video-grid">
+
+<iframe src="https://www.youtube.com/embed/my4asGB1124"></iframe>
+<iframe src="https://www.youtube.com/embed/iPnDuxcxtJw"></iframe>
+<iframe src="https://www.youtube.com/embed/nKpNM2UKhD4"></iframe>
+<iframe src="https://www.youtube.com/embed/QPWmrfAD4TI"></iframe>
+
+</div>
+
+
+<h3 class="price-title">
+02/PRICE
+</h3>
+
 
 <div class="price-wrap">
 <img src="images/price.png">
 </div>
 
+
+</div>
+
 </section>
+
+
 
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="fadein">
@@ -323,6 +343,44 @@ overlay.classList.remove("show");
 });
 });
 </script>
+<script>
 
+for(let i=0;i<20;i++){
+
+const snow=document.createElement("div");
+
+snow.classList.add("snow");
+
+
+const colors = [
+"#eefbff",
+"#e6f8ff",
+"#ddf4ff",
+"#d4f0ff"
+];
+
+snow.style.color =
+colors[Math.floor(Math.random()*colors.length)];
+
+const snowTypes = ["❄","❅","❆"];
+snow.innerHTML =
+snowTypes[Math.floor(Math.random()*snowTypes.length)];
+
+snow.style.left=Math.random()*100+"vw";
+
+snow.style.fontSize=
+(Math.random()*20+15)+"px";
+
+snow.style.animationDuration=
+(Math.random()*10+10)+"s";
+
+snow.style.opacity =
+Math.random() * 0.4 + 0.6;
+
+document.body.appendChild(snow);
+
+}
+
+</script>
 </body>
 </html>
