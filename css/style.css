@@ -718,19 +718,24 @@ margin:auto;
 
 
 
+/* ===== SERVICE TITLE ===== */
+
 .service-block h3{
 
-font-size:20px;
+font-size:16px;
 
-letter-spacing:4px;
+font-weight:400;
 
-margin:60px 0 30px;
+letter-spacing:.35em;
+
+color:#8a9aa7;
 
 text-align:center;
 
+
+margin:80px 0 35px;
+
 }
-
-
 
 .price-title{
 
@@ -749,16 +754,87 @@ margin:auto;
 }
 
 
+/* ===== PRICE CARD ===== */
 
-.price-wrap img{
+.price-card{
 
-width:100%;
+display:flex;
 
-height:auto;
+justify-content:center;
+
+background:rgba(255,255,255,.8);
+
+backdrop-filter:blur(10px);
+
+padding:30px;
 
 border-radius:20px;
 
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+
+.price-card img{
+
+width:70%;
+
+max-width:500px;
+
+height:auto;
+
+display:block;
+
+border-radius:12px;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.price-card{
+
+padding:20px;
+
+}
+
+
+.price-card img{
+
+width:100%;
+
+}
+
+
+}
+
+.price-wrap{
+
+display:flex;
+
+justify-content:center;
+
+padding:20px;
+
+}
+
 box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.service-block h3 span{
+
+font-size:13px;
+
+color:var(--accent);
+
+letter-spacing:.1em;
 
 }
 
@@ -1317,5 +1393,84 @@ font-size:50px;
 
 }
 
+
+}
+
+/* ===== WORKS 横スクロール ===== */
+
+.works-scroll{
+
+display:flex;
+
+overflow-x:auto;
+
+gap:25px;
+
+padding-bottom:20px;
+
+scroll-snap-type:x mandatory;
+
+}
+
+
+.works-scroll iframe{
+
+flex:0 0 320px;
+
+aspect-ratio:16/9;
+
+border:none;
+
+border-radius:20px;
+
+scroll-snap-align:start;
+
+}
+
+
+/* スクロールバー */
+
+.works-scroll::-webkit-scrollbar{
+
+height:6px;
+
+}
+
+/* ===== MIX WORKS PLAYLIST ===== */
+
+.works-playlist{
+
+display:flex;
+
+justify-content:center;
+
+}
+
+
+.works-playlist iframe{
+
+width:55%;
+
+max-width:600px;
+
+aspect-ratio:16/9;
+
+border:none;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+@media(max-width:768px){
+
+.works-playlist iframe{
+
+width:100%;
+
+}
 
 }
