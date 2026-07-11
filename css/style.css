@@ -1409,18 +1409,22 @@ padding:10px 5px 20px;
 
 scroll-snap-type:x mandatory;
 
+scroll-behavior:smooth;
+
 }
 
 
 .works-scroll iframe{
 
-flex:0 0 280px;
+width:300px;
+
+flex:0 0 300px;
 
 aspect-ratio:16/9;
 
 border:none;
 
-border-radius:20px;
+border-radius:16px;
 
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 
