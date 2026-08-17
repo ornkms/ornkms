@@ -1,1517 +1,1717 @@
-:root{
+/* =========================================================
+   垣花夏祭り2026
+   style.css
+   ========================================================= */
 
---main:#bcc9d5;
---sub:#cad8e1;
---light:#dbe0e5;
---accent:#a5b9c7;
 
---bg:#f7f9fb;
---text:#6f8797;
+/* =========================================================
+   01. RESET
+   ========================================================= */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
-/* ===== reset ===== */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-
-html{
-scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
-
-
-body{
-
-font-family:"Noto Sans JP",sans-serif;
-
-background:#fcfdff;
-
-color:var(--text);
 
-line-height:1.8;
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #fff;
+  line-height: 1.8;
 
-overflow-x:hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 5, 17, 0.78) 0%,
+      rgba(5, 8, 23, 0.72) 35%,
+      rgba(8, 13, 36, 0.68) 70%,
+      rgba(4, 7, 20, 0.78) 100%
+    );
 
+  overflow-x: hidden;
 }
 
-
-
-/* ===== background ===== */
-
-#tsparticles{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-z-index:0;
-
+img {
+  display: block;
+  max-width: 100%;
 }
-
-
 
-/* 前面表示 */
-
-header,
-section,
-footer{
-
-position:relative;
-
-z-index:1;
-
+a {
+  color: inherit;
+  text-decoration: none;
 }
-
-
-
-/* ===== HEADER ===== */
-
-
-header{
-
-position:fixed;
 
-top:0;
-left:0;
 
-width:100%;
+/* =========================================================
+   02. COLOR
+   ========================================================= */
 
+:root {
+  --navy: #080d24;
+  --deep-navy: #050817;
+  --blue: #111b42;
 
-background:rgba(255,255,255,.8);
+  --orange: #425ca8;
+  --yellow: #718cff;
 
-backdrop-filter:blur(12px);
-
-
-z-index:1000;
-
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-
-padding:10px 30px;
-
+  --cream: #eef2ff;
+  --white: #ffffff;
+  --light-blue: #c8d4ff;
 }
-
-
 
-/* logo */
 
-.logo img{
+/* =========================================================
+   03. BODY BACKGROUND
+   ========================================================= */
 
-height:28px;
-
-width:auto;
-
-display:block;
-
+body {
+  background:
+    linear-gradient(
+      180deg,
+      #030511 0%,
+      #050817 35%,
+      #080d24 70%,
+      #040714 100%
+    );
 }
 
 
+/* =========================================================
+   04. MATSURI BACKGROUND IMAGE
+   ========================================================= */
 
-/* ===== PC NAV ===== */
+/*
+  お祭りの夜の写真を背景にする部分
+  haikei.png をぼかして紺色になじませる
+*/
 
+.matsuri-bg {
+  position: fixed;
 
-nav{
+  inset: 0;
 
-display:flex;
+  width: 100%;
+  height: 100%;
 
-align-items:center;
+  overflow: hidden;
 
-gap:20px;
+  z-index: -2;
 
+  pointer-events: none;
 }
-
-
-
-nav a{
-
-text-decoration:none;
-
-color:var(--text);
-
-font-size:.9rem;
-
-letter-spacing:.1em;
 
-padding:8px 10px;
+.matsuri-bg::before {
+  content: "";
 
-transition:.3s;
+  position: absolute;
 
-}
-
+  inset: 0;
 
-nav a:hover{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 5, 17, 0.55) 0%,
+      rgba(5, 8, 23, 0.45) 40%,
+      rgba(8, 13, 36, 0.55) 75%,
+      rgba(4, 7, 20, 0.70) 100%
+    );
 
-opacity:.6;
-
+  z-index: 2;
 }
-
-
 
-/* ===== header right ===== */
+.matsuri-bg img {
+  position: absolute;
 
+  top: 50%;
+  left: 50%;
 
-.header-right{
+  width: 100%;
+  height: 100%;
 
-display:flex;
+  object-fit: cover;
 
-align-items:center;
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
 
-gap:25px;
+  filter:
+    blur(10px)
+    brightness(0.72)
+    saturate(0.9);
 
+  opacity: 0.72;
 }
-
-
-
-.news-link{
-
-text-decoration:none;
-
-color:var(--text);
-
-font-size:.9rem;
 
-letter-spacing:.1em;
 
-transition:.3s;
+/* =========================================================
+   05. HERO
+   ========================================================= */
 
-}
-
+.hero {
+  position: relative;
 
+  min-height: 100vh;
+  min-height: 100svh;
 
-.news-link:hover{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-opacity:.6;
+  overflow: hidden;
 
+  background: #050505;
 }
-
-
-
-/* ===== hamburger ===== */
 
 
-.hamburger{
+/* =========================================================
+   06. HERO VIDEO
+   ========================================================= */
 
-display:none;
+.hero-video {
+  position: absolute;
 
-flex-direction:column;
+  inset: 0;
 
-gap:5px;
+  width: 100%;
+  height: 100%;
 
-cursor:pointer;
+  object-fit: cover;
 
-z-index:1100;
-
+  z-index: 0;
 }
-
 
 
-.hamburger span{
+/* =========================================================
+   07. HERO OVERLAY
+   ========================================================= */
 
-width:25px;
+.hero-overlay {
+  position: absolute;
 
-height:2px;
+  inset: 0;
 
-background:var(--text);
+  background:
+    rgba(0, 0, 0, 0.18);
 
-transition:.3s;
+  pointer-events: none;
 
+  z-index: 1;
 }
 
 
+/* =========================================================
+   08. HERO CONTENT
+   ========================================================= */
 
-/* ===== smartphone ===== */
+.hero-content {
+  position: relative;
 
+  z-index: 3;
 
-@media(max-width:768px){
+  width: 100%;
 
+  padding: 40px 20px;
 
-header{
-
-padding:10px 20px;
-
+  text-align: center;
 }
-
 
-/* NEWS非表示 */
 
-.news-link{
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
 
-display:none;
+.hero-content h1 {
+  font-family: "Yuji Boku", serif;
 
-}
-
+  font-size:
+    clamp(3rem, 10vw, 7rem);
 
+  font-weight: 400;
 
-/* hamburger表示 */
+  letter-spacing: 0.08em;
 
-.hamburger{
+  line-height: 1.2;
 
-display:flex;
+  color: var(--white);
 
+  text-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 0, 0, 0.55);
 }
 
 
-/* 右上固定 */
+/* =========================================================
+   HERO DATE
+   ========================================================= */
 
-.header-right{
+.hero-date {
+  margin-top: 28px;
 
-position:fixed;
+  font-size:
+    clamp(1.3rem, 3vw, 2rem);
 
-top:20px;
+  font-weight: 700;
 
-right:20px;
+  letter-spacing: 0.12em;
 
-z-index:1100;
+  color: var(--yellow);
 
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 
+/* =========================================================
+   HERO TIME
+   ========================================================= */
 
-/* menu */
+.hero-time {
+  margin-top: 4px;
 
+  font-size:
+    clamp(1rem, 2vw, 1.3rem);
 
-nav{
+  letter-spacing: 0.12em;
 
-position:fixed;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.8);
+}
 
-top:0;
 
-right:-100%;
+/* =========================================================
+   HERO PLACE
+   ========================================================= */
 
+.hero-place {
+  margin-top: 8px;
 
-width:70%;
+  font-size: 1rem;
 
-height:100vh;
+  letter-spacing: 0.08em;
 
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.8);
+}
 
-background:white;
 
+/* =========================================================
+   HERO BUTTON
+   ========================================================= */
 
-flex-direction:column;
+.hero-btn {
+  display: inline-flex;
 
-align-items:flex-start;
+  align-items: center;
+  justify-content: center;
 
+  margin-top: 36px;
 
-padding:80px 30px;
+  padding: 14px 34px;
 
+  border:
+    2px solid var(--yellow);
 
-gap:20px;
+  border-radius: 999px;
 
+  background:
+    rgba(0, 0, 0, 0.3);
 
-transition:.4s ease;
+  color: var(--yellow);
 
+  font-weight: 700;
 
-box-shadow:-10px 0 30px rgba(0,0,0,.1);
+  letter-spacing: 0.08em;
 
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
-
 
+.hero-btn:hover {
+  background: var(--yellow);
 
-nav.open{
+  color: var(--deep-navy);
 
-right:0;
+  transform: translateY(-3px);
 
+  box-shadow:
+    0 8px 25px rgba(113, 140, 255, 0.3);
 }
 
 
+/* =========================================================
+   HERO FLYER
+   ========================================================= */
 
-/* overlay */
+.hero-flyer {
+  position: absolute;
 
+  width:
+    min(300px, 35vw);
 
-.overlay{
+  right: 5%;
+  bottom: 5%;
 
-position:fixed;
+  z-index: 2;
 
-top:0;
+  opacity: 0.2;
 
-left:0;
+  transform: rotate(6deg);
 
+  filter:
+    drop-shadow(
+      0 20px 35px rgba(0, 0, 0, 0.6)
+    );
 
-width:100%;
-
-height:100%;
+  animation:
+    flyerFloat 5s ease-in-out infinite;
+}
 
 
-background:rgba(0,0,0,.4);
+/* =========================================================
+   09. TAB NAVIGATION
+   ========================================================= */
 
+.tab-nav {
+  position: sticky;
 
-opacity:0;
+  top: 0;
 
-visibility:hidden;
+  z-index: 100;
 
+  display: flex;
 
-transition:.3s;
+  justify-content: center;
 
+  width: 100%;
 
-z-index:900;
+  padding: 12px 16px;
 
-}
+  background:
+    rgba(8, 15, 50, 0.92);
 
+  border-bottom:
+    1px solid rgba(113, 140, 255, 0.25);
 
+  backdrop-filter: blur(14px);
 
-.overlay.show{
+  /*
+    タブが多い場合は横スクロール
+    スマホでも画面外にはみ出さない
+  */
+  overflow-x: auto;
+  overflow-y: hidden;
 
-opacity:1;
+  scrollbar-width: none;
 
-visibility:visible;
+  -webkit-overflow-scrolling: touch;
 
+  /*
+    左右に少し余白を確保
+  */
+  scroll-padding-left: 10px;
+  scroll-padding-right: 10px;
 }
 
-
+.tab-nav::-webkit-scrollbar {
+  display: none;
 }
 
+.tab-nav a {
+  flex: 0 0 auto;
 
+  display: block;
 
-/* hamburger animation */
+  padding: 9px 20px;
 
+  color: #fff;
 
-.hamburger.active span:nth-child(1){
+  font-size: 0.9rem;
 
-transform:rotate(45deg) translate(5px,5px);
-
-}
+  font-weight: 700;
 
+  letter-spacing: 0.05em;
 
-.hamburger.active span:nth-child(2){
+  border-radius: 999px;
 
-opacity:0;
+  white-space: nowrap;
 
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
+.tab-nav a::before {
+  content: "🏮";
 
-.hamburger.active span:nth-child(3){
+  margin-right: 5px;
 
-transform:rotate(-45deg) translate(5px,-5px);
-
+  font-size: 0.8em;
 }
-
-/* ===== HERO ===== */
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
 
-align-items:center;
+.tab-nav a:hover {
+  color: var(--deep-navy);
 
-justify-content:center;
-
-gap:80px;
-
-padding:120px 10%;
-
+  background: var(--yellow);
 }
-
-
-.hero-text h1{
 
-font-size:5rem;
 
-font-weight:300;
+/* =========================================================
+   10. SECTION
+   ========================================================= */
 
-letter-spacing:.25em;
+.section {
+  position: relative;
 
-}
-
+  width:
+    min(1100px, calc(100% - 40px));
 
-.sub{
+  margin: 0 auto;
 
-margin:15px 0;
-
-font-size:1.1rem;
-
+  padding: 110px 0;
 }
 
+.section h2 {
+  position: relative;
 
-.hero-buttons{
+  margin-bottom: 55px;
 
-margin-top:30px;
+  text-align: center;
 
-display:flex;
+  font-size:
+    clamp(2rem, 5vw, 3rem);
 
-gap:15px;
+  font-weight: 700;
 
-flex-wrap:wrap;
+  letter-spacing: 0.12em;
 
+  color: var(--white);
 }
-
 
+.section h2::before {
+  content: "✦";
 
-.btn{
+  display: block;
 
-display:inline-block;
+  margin-bottom: 8px;
 
-padding:12px 28px;
+  color: var(--yellow);
 
-border-radius:999px;
-
-background:var(--main);
-
-color:white;
-
-text-decoration:none;
-
-transition:.3s;
-
+  font-size: 1rem;
 }
-
 
+.section h2::after {
+  content: "";
 
-.btn:hover{
+  display: block;
 
-background:var(--accent);
+  width: 55px;
+  height: 3px;
 
-}
-
+  margin: 18px auto 0;
 
+  border-radius: 999px;
 
-.hero-image img{
-
-max-height:80vh;
-
+  background: var(--orange);
 }
-
 
 
-/* ===== SECTION ===== */
+/* =========================================================
+   11. INFO CARD
+   ========================================================= */
 
+.info-card {
+  max-width: 800px;
 
-section{
+  margin: 0 auto;
 
-padding:120px 10%;
+  padding: 38px;
 
-margin-bottom:80px;
+  display: grid;
 
-}
-
+  grid-template-columns:
+    repeat(2, 1fr);
 
+  gap: 0;
 
-.section-title{
+  background:
+    rgba(255, 255, 255, 0.08);
 
-font-size:2rem;
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
 
-font-weight:300;
+  border-radius: 24px;
 
-text-align:center;
+  backdrop-filter: blur(12px);
 
-margin-bottom:60px;
-
-letter-spacing:.2em;
-
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2);
 }
-
 
+.info-card p {
+  padding: 20px;
 
-
-/* ===== PROFILE ===== */
-
-
-.profile-wrap{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-text-align:center;
-
-gap:30px;
-
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
 }
-
-
 
-.profile-text{
-
-max-width:600px;
-
+.info-card p:nth-last-child(-n + 2) {
+  border-bottom: none;
 }
-
-
-
-.profile-image img{
 
-width:220px;
+.info-card strong {
+  display: inline-block;
 
-height:220px;
+  margin-bottom: 5px;
 
-object-fit:cover;
+  color: var(--yellow);
 
-border-radius:50%;
+  font-size: 0.85rem;
 
+  letter-spacing: 0.08em;
 }
-
-
-
-
-.sns-links{
-
-margin-top:25px;
 
-display:flex;
 
-justify-content:center;
+/* =========================================================
+   12. FLYER CARD
+   ========================================================= */
 
-gap:15px;
+.flyer-card {
+  max-width: 600px;
 
-flex-wrap:wrap;
+  margin: 0 auto 55px;
 
+  text-align: center;
 }
 
+.flyer-open {
+  position: relative;
 
+  display: block;
 
-.sns-links a{
+  width: 100%;
 
-text-decoration:none;
+  padding: 0;
 
-padding:10px 20px;
+  border: none;
 
-border-radius:999px;
+  border-radius: 24px;
 
-background:var(--light);
+  overflow: hidden;
 
-color:var(--text);
+  cursor: pointer;
 
-transition:.3s;
+  background:
+    rgba(255, 255, 255, 0.06);
 
-}
-
-
-
-.sns-links a:hover{
-
-background:var(--main);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
 
-color:white;
-
-transform:translateY(-3px);
-
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
-
-
-
-
-/* ===== COVER / MIX SERVICE VIDEO ===== */
 
+.flyer-open:hover {
+  transform: translateY(-5px);
 
-.video-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-gap:25px;
-
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.45);
 }
-
-
-
-.video-grid iframe{
-
-width:100%;
-
-aspect-ratio:16/9;
-
-border:none;
 
-border-radius:20px;
-
-display:block;
-
-box-shadow:0 10px 30px rgba(0,0,0,.05);
-
+.flyer-open img {
+  width: 100%;
+  height: auto;
 }
-
-
-
-
-.latest-frame{
-
-position:relative;
-
-background:white;
-
-padding:10px;
-
-border-radius:20px;
 
-border:2px solid var(--accent);
+.flyer-hint {
+  position: absolute;
 
-box-shadow:
-0 0 6px rgba(165,185,199,.2),
-0 0 15px rgba(165,185,199,.1);
+  right: 18px;
+  bottom: 18px;
 
-margin-bottom:40px;
+  padding: 7px 13px;
 
-}
-
+  border-radius: 999px;
 
+  background:
+    rgba(5, 8, 23, 0.75);
 
-.latest-frame iframe{
+  color: #fff;
 
-width:100%;
+  font-size: 0.7rem;
 
-aspect-ratio:16/9;
+  font-weight: 700;
 
-border:none;
+  letter-spacing: 0.12em;
 
-border-radius:12px;
-
+  backdrop-filter: blur(8px);
 }
-
-
 
-.new-badge{
 
-position:absolute;
+/* =========================================================
+   13. FLYER MODAL
+   ========================================================= */
 
-top:-10px;
+.flyer-modal {
+  position: fixed;
 
-right:15px;
+  inset: 0;
 
+  display: flex;
 
-background:var(--accent);
+  align-items: center;
+  justify-content: center;
 
-color:white;
+  padding: 30px;
 
+  background:
+    rgba(0, 0, 0, 0.88);
 
-padding:6px 12px;
+  backdrop-filter: blur(10px);
 
+  opacity: 0;
 
-border-radius:999px;
+  visibility: hidden;
 
+  z-index: 999;
 
-font-size:12px;
-
-font-weight:bold;
-
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
+.flyer-modal.is-open {
+  opacity: 1;
 
-
-/* ===== MIX SERVICE ===== */
-
+  visibility: visible;
+}
 
-.service-block{
+.flyer-modal-image {
+  max-width: 90vw;
+  max-height: 90vh;
 
-max-width:1000px;
+  width: auto;
+  height: auto;
 
-margin:auto;
+  border-radius: 10px;
 
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.6);
 }
 
+.flyer-close {
+  position: absolute;
 
+  top: 20px;
+  right: 25px;
 
-/* ===== SERVICE TITLE ===== */
+  width: 50px;
+  height: 50px;
 
-.service-block h3{
+  border: none;
 
-font-size:16px;
+  border-radius: 50%;
 
-font-weight:400;
+  background:
+    rgba(255, 255, 255, 0.12);
 
-letter-spacing:.35em;
+  color: #fff;
 
-color:#8a9aa7;
+  font-size: 2rem;
 
-text-align:center;
+  line-height: 1;
 
+  cursor: pointer;
 
-margin:80px 0 35px;
+  backdrop-filter: blur(10px);
 
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
-.price-title{
+.flyer-close:hover {
+  background:
+    rgba(113, 140, 255, 0.5);
 
-margin-top:100px;
-
+  transform: rotate(90deg);
 }
 
 
+/* =========================================================
+   14. PROGRAM TIMELINE
+   ========================================================= */
 
-.price-wrap{
+.timeline {
+  position: relative;
 
-max-width:900px;
+  max-width: 760px;
 
-margin:auto;
+  margin: 0 auto;
 
+  padding-left: 70px;
 }
-
 
-/* ===== PRICE CARD ===== */
+.timeline::before {
+  content: "";
 
-.price-wrap{
+  position: absolute;
 
-display:flex;
+  top: 0;
+  bottom: 0;
 
-justify-content:center;
+  left: 24px;
 
-padding:20px;
+  width: 2px;
 
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      var(--yellow),
+      var(--orange),
+      var(--yellow),
+      transparent
+    );
 }
-
-
-.price-card{
-
-display:flex;
 
-justify-content:center;
+.timeline-item {
+  position: relative;
 
-background:rgba(255,255,255,.8);
+  display: grid;
 
-backdrop-filter:blur(10px);
+  grid-template-columns:
+    85px 1fr;
 
-padding:30px;
+  gap: 25px;
 
-border-radius:20px;
+  margin-bottom: 28px;
 
-box-shadow:0 10px 30px rgba(0,0,0,.05);
+  padding: 20px 22px;
 
-max-width:700px;
+  background:
+    rgba(255, 255, 255, 0.07);
 
-width:100%;
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
 
-margin:auto;
+  border-radius: 16px;
 
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
+.timeline-item::before {
+  content: "";
 
-.price-card img{
+  position: absolute;
 
-width:70%;
+  width: 12px;
+  height: 12px;
 
-max-width:500px;
+  left: -52px;
+  top: 27px;
 
-height:auto;
+  border-radius: 50%;
 
-display:block;
+  background: var(--yellow);
 
-border-radius:12px;
-
+  box-shadow:
+    0 0 0 5px rgba(113, 140, 255, 0.12),
+    0 0 15px rgba(113, 140, 255, 0.4);
 }
-
-
-@media(max-width:768px){
 
-.price-card{
+.timeline-item:hover {
+  transform: translateX(5px);
 
-padding:20px;
-
+  background:
+    rgba(255, 255, 255, 0.12);
 }
-
-
-.price-card img{
 
-width:100%;
+.timeline-item span {
+  color: var(--yellow);
 
-}
+  font-size: 1.2rem;
 
+  font-weight: 700;
 }
-box-shadow:0 10px 30px rgba(0,0,0,.08);
 
+.timeline-item p {
+  font-weight: 500;
 }
-
-.service-block h3 span{
 
-font-size:13px;
 
-color:var(--accent);
+/* =========================================================
+   FIREWORKS SPECIAL
+   ========================================================= */
 
-letter-spacing:.1em;
+.timeline-item.fireworks {
+  border-color:
+    rgba(113, 140, 255, 0.5);
 
+  background:
+    linear-gradient(
+      135deg,
+      rgba(66, 92, 168, 0.22),
+      rgba(113, 140, 255, 0.1)
+    );
 }
-
-
-
-/* ===== NEWS ===== */
 
+.timeline-item.fireworks::before {
+  background: var(--yellow);
 
-.news{
-
-padding:120px 10%;
-
+  box-shadow:
+    0 0 0 5px rgba(113, 140, 255, 0.15),
+    0 0 20px rgba(113, 140, 255, 0.55);
 }
 
 
+/* =========================================================
+   15. ENJOY CARDS
+   ========================================================= */
 
-.news-list{
+.enjoy-grid {
+  display: grid;
 
-display:flex;
+  grid-template-columns:
+    repeat(3, 1fr);
 
-flex-direction:column;
-
-gap:20px;
-
+  gap: 25px;
 }
-
 
+.event-card {
+  overflow: hidden;
 
-.news-card{
+  background:
+    rgba(255, 255, 255, 0.08);
 
-background:white;
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
 
-padding:20px 25px;
+  border-radius: 22px;
 
-border-radius:15px;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.18);
 
-box-shadow:0 10px 30px rgba(0,0,0,.05);
-
-transition:.3s;
-
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
-
-
-
-.news-card:hover{
 
-transform:translateY(-5px);
+.event-card:hover {
+  transform: translateY(-8px);
 
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.28);
 }
 
+.event-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
 
+  filter:
+    blur(2px)
+    brightness(0.8);
 
-.news-tag{
+  transform: scale(1.03);
 
-font-size:11px;
+  background: #182d70;
 
-letter-spacing:.1em;
-
-color:#8a9aa7;
-
-margin-bottom:8px;
-
-display:inline-block;
-
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
-
-
 
-.news-date{
-
-font-size:12px;
-
-color:#8a9aa7;
-
-margin-bottom:5px;
-
+.event-card-content {
+  padding: 0;
 }
-
 
+.event-card h3 {
+  padding: 20px 20px 5px;
 
-.news-text{
+  color: var(--yellow);
 
-font-size:14px;
-
-color:#5b6b75;
-
+  font-size: 1.15rem;
 }
-
-
-
-.news-flyer{
 
-width:100%;
+.event-card p {
+  padding: 0 20px 22px;
 
-max-width:350px;
+  color:
+    rgba(255, 255, 255, 0.82);
 
-height:auto;
-
-display:block;
-
-margin:0 auto 15px;
-
-border-radius:12px;
-
-object-fit:cover;
-
+  font-size: 0.9rem;
 }
-
-
-
-/* ===== SCHEDULE ===== */
-
-
-.schedule-box{
-
-display:flex;
 
-flex-direction:column;
 
-gap:20px;
+/* =========================================================
+   16. ENTRY
+   ========================================================= */
 
-}
-
+.entry-card {
+  max-width: 700px;
 
+  margin: 0 auto;
 
-.live-card{
+  padding: 40px;
 
-background:white;
+  text-align: center;
 
-padding:20px 25px;
+  background:
+    rgba(255, 255, 255, 0.08);
 
-border-radius:15px;
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
 
-box-shadow:0 10px 30px rgba(0,0,0,.05);
+  border-radius: 24px;
 
-transition:.3s;
-
+  backdrop-filter: blur(12px);
 }
-
-
 
-.live-card:hover{
+.entry-card h3 {
+  margin-bottom: 18px;
 
-transform:translateY(-5px);
+  color: var(--yellow);
 
+  font-size: 1.2rem;
 }
 
 
+/* =========================================================
+   DOWNLOAD BUTTON
+   ========================================================= */
 
-.live-date{
+.download-btn {
+  display: inline-flex;
 
-font-size:12px;
+  align-items: center;
+  justify-content: center;
 
-letter-spacing:.1em;
+  width: 100%;
 
-color:#8a9aa7;
+  min-height: 55px;
 
-margin-bottom:8px;
+  margin-bottom: 38px;
 
-}
-
+  border-radius: 999px;
 
+  background: var(--orange);
 
-.live-title{
+  color: #fff;
 
-font-size:18px;
+  font-weight: 700;
 
-color:#5b6b75;
+  letter-spacing: 0.06em;
 
-margin-bottom:5px;
+  box-shadow:
+    0 8px 20px rgba(66, 92, 168, 0.3);
 
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
-
-
-
-.live-place{
 
-font-size:13px;
+.download-btn::before {
+  content: "↓";
 
-color:#9aa8b3;
+  margin-right: 8px;
 
+  font-size: 1.2rem;
 }
 
-/* ===== CONTACT ===== */
+.download-btn:hover {
+  transform: translateY(-3px);
 
+  background: #506bc0;
 
-#contact{
-
-text-align:center;
-
+  box-shadow:
+    0 12px 28px rgba(66, 92, 168, 0.4);
 }
 
 
+/* =========================================================
+   CONTACT
+   ========================================================= */
 
-.contact-text{
+.contact-box {
+  margin-top: 10px;
 
-margin-bottom:20px;
+  padding-top: 35px;
 
+  border-top:
+    1px solid rgba(255, 255, 255, 0.15);
 }
-
-
-
-.contact-buttons{
 
-margin-top:30px;
+.contact-box p {
+  margin-bottom: 15px;
 
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
+  color:
+    rgba(255, 255, 255, 0.8);
 }
-
-
 
 
-/* ===== FOOTER ===== */
+/* =========================================================
+   CALL BUTTON
+   ========================================================= */
 
+.call-btn {
+  display: inline-flex;
 
-footer{
+  align-items: center;
+  justify-content: center;
 
-background:white;
+  width: 100%;
 
-padding:60px;
+  min-height: 55px;
 
-text-align:center;
+  margin-bottom: 0;
 
-}
-
+  border-radius: 999px;
 
+  background: var(--yellow);
 
+  color: var(--deep-navy);
 
-footer h3{
+  font-weight: 700;
 
-font-weight:400;
+  letter-spacing: 0.06em;
 
-letter-spacing:.2em;
+  box-shadow:
+    0 8px 20px rgba(113, 140, 255, 0.25);
 
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
+.call-btn::before {
+  content: "📞";
 
-
-
-footer p{
+  margin-right: 8px;
+}
 
-font-size:13px;
+.call-btn:hover {
+  transform: translateY(-3px);
 
-color:#8a9aa7;
+  background: #8da2ff;
 
+  box-shadow:
+    0 12px 28px rgba(113, 140, 255, 0.35);
 }
 
 
+/* =========================================================
+   17. NOTICE
+   ========================================================= */
 
+.notice-list {
+  max-width: 800px;
 
-/* ===== FADE ANIMATION ===== */
+  margin: 0 auto;
 
+  padding: 30px 35px;
 
-.fadein{
+  list-style: none;
 
-opacity:0;
+  background:
+    rgba(255, 255, 255, 0.07);
 
-transform:translateY(30px);
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
 
-transition:all 1s ease;
-
+  border-radius: 20px;
 }
-
 
+.notice-list li {
+  position: relative;
 
-.fadein.show{
+  padding: 13px 0 13px 30px;
 
-opacity:1;
-
-transform:translateY(0);
-
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.1);
 }
-
-
-
-
-/* ===== LOADING ===== */
-
-
-#loading{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-
-width:100%;
-
-height:100%;
 
-
-background:white;
-
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-
-z-index:99999;
-
-
-transition:
-
-opacity 1.5s ease,
-
-visibility 1.5s;
-
+.notice-list li:last-child {
+  border-bottom: none;
 }
 
+.notice-list li::before {
+  content: "⚠";
 
+  position: absolute;
 
-#loading.fade{
+  left: 0;
 
-opacity:0;
-
-visibility:hidden;
-
+  color: var(--yellow);
 }
-
 
 
-.loading-text{
+/* =========================================================
+   18. ACCESS
+   ========================================================= */
 
-text-align:center;
+.access-card {
+  max-width: 850px;
 
-animation:fadeUp 2s ease;
+  margin: 0 auto;
 
+  text-align: center;
 }
-
-
-
-.loading-text h1{
-
-font-size:70px;
-
-font-weight:300;
-
-letter-spacing:.35em;
 
+.access-card > p {
+  margin-bottom: 25px;
 
-color:var(--accent);
+  color: var(--yellow);
 
-margin-bottom:15px;
+  font-size: 1.3rem;
 
+  font-weight: 700;
 }
 
+.access-address {
+  color:
+    rgba(255, 255, 255, 0.85) !important;
 
+  font-size: 0.95rem !important;
 
-.loading-text p{
+  font-weight: 400 !important;
 
-color:#8a9aa7;
-
-letter-spacing:.15em;
-
-font-size:15px;
-
+  line-height: 1.8;
 }
-
-
 
 
-@keyframes fadeUp{
+/* =========================================================
+   ACCESS MAP
+   ========================================================= */
 
+.map-container {
+  width: 100%;
 
-0%{
+  overflow: hidden;
 
-opacity:0;
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
 
-transform:translateY(20px);
+  border-radius: 18px;
 
-filter:blur(8px);
+  background: #fff;
 
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
+.map-container iframe {
+  display: block;
 
-100%{
+  width: 100%;
 
-opacity:1;
+  min-height: 300px;
 
-transform:translateY(0);
-
-filter:blur(0);
-
+  border: 0;
 }
-
-}
-
 
 
+/* =========================================================
+   GOOGLE MAP BUTTON
+   ========================================================= */
 
-/* ===== SNOW ===== */
+.map-btn {
+  display: inline-flex;
 
+  align-items: center;
+  justify-content: center;
 
-.snow{
+  margin-top: 24px;
 
-position:fixed;
+  padding: 14px 32px;
 
-top:-10px;
+  border:
+    2px solid var(--yellow);
 
+  border-radius: 999px;
 
-pointer-events:none;
+  background: var(--yellow);
 
-user-select:none;
+  color: var(--deep-navy);
 
+  font-weight: 700;
 
-z-index:2;
+  letter-spacing: 0.06em;
 
+  box-shadow:
+    0 8px 20px rgba(113, 140, 255, 0.25);
 
-animation:snowfall linear infinite;
-
-
-opacity:.1;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
 
+.map-btn::before {
+  content: "📍";
 
-text-shadow:
+  margin-right: 8px;
+}
 
-0 0 4px rgba(255,255,255,.8),
+.map-btn:hover {
+  transform: translateY(-3px);
 
-0 0 8px rgba(255,255,255,.4);
+  background: #8da2ff;
 
+  box-shadow:
+    0 12px 28px rgba(113, 140, 255, 0.35);
 }
+
 
+/* =========================================================
+   19. FOOTER
+   ========================================================= */
 
+footer {
+  padding: 55px 20px;
 
+  text-align: center;
 
-@keyframes snowfall{
+  background:
+    rgba(0, 0, 0, 0.2);
 
+  border-top:
+    1px solid rgba(255, 255, 255, 0.1);
+}
 
-0%{
+footer p:first-child {
+  margin-bottom: 5px;
 
-transform:translateY(-10vh);
+  color: var(--yellow);
 
+  font-weight: 700;
 }
 
+footer p:last-child {
+  color:
+    rgba(255, 255, 255, 0.6);
 
-100%{
+  font-size: 0.8rem;
+}
 
-transform:translateY(110vh);
 
-}
+/* =========================================================
+   20. ANIMATION
+   ========================================================= */
 
-}
+@keyframes flyerFloat {
 
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(6deg);
+  }
 
+  50% {
+    transform:
+      translateY(-15px)
+      rotate(4deg);
+  }
 
+}
 
-/* ===== RESPONSIVE ===== */
 
+/* =========================================================
+   21. TABLET
+   ========================================================= */
 
-@media(max-width:900px){
+@media (max-width: 900px) {
 
+  .tab-nav {
+    /*
+      タブが画面幅を超えたら
+      横方向にスワイプできるようにする
+    */
+    justify-content: flex-start;
 
-.hero{
+    overflow-x: auto;
+    overflow-y: hidden;
 
-flex-direction:column;
+    -webkit-overflow-scrolling: touch;
 
-gap:30px;
+    scrollbar-width: none;
+  }
 
-padding:100px 20px;
+  .tab-nav::-webkit-scrollbar {
+    display: none;
+  }
 
-text-align:center;
+  .tab-nav a {
+    flex: 0 0 auto;
 
-}
+    white-space: nowrap;
+  }
 
+  .enjoy-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
 
+  .hero-flyer {
+    width: 250px;
 
-.hero-text h1{
+    right: -20px;
+    bottom: 3%;
 
-font-size:2.5rem;
+    opacity: 0.13;
+  }
 
 }
 
 
+/* =========================================================
+   22. MOBILE
+   ========================================================= */
 
-.hero-image img{
+@media (max-width: 600px) {
 
-max-width:100%;
+  body {
+    font-size: 15px;
+  }
 
-}
 
+  /* ========================================
+     Background
+  ======================================== */
 
+  .matsuri-bg img {
+    width: auto;
 
-.video-grid{
+    min-width: 100%;
+    height: 100%;
 
-grid-template-columns:1fr;
+    object-fit: cover;
 
-}
+    transform:
+      translate(-50%, -50%)
+      scale(1.12);
 
+    filter:
+      blur(10px)
+      brightness(0.5)
+      saturate(0.75);
 
+    opacity: 0.5;
+  }
 
-}
 
+  /* ========================================
+     Hero
+  ======================================== */
 
+  .hero {
+    min-height: 92svh;
+  }
 
+  .hero-content {
+    padding: 30px 18px;
+  }
 
-@media(max-width:768px){
+  .hero-content h1 {
+    font-size:
+      clamp(2.5rem, 13vw, 4rem);
 
+    letter-spacing: 0.08em;
+  }
 
-section{
+  .hero-date {
+    margin-top: 22px;
 
-padding:100px 20px;
+    font-size: 1.15rem;
+  }
 
-}
+  .hero-place {
+    font-size: 0.9rem;
+  }
 
+  .hero-btn {
+    margin-top: 28px;
 
-.section-title{
+    padding: 13px 28px;
+  }
 
-font-size:1.6rem;
+  .hero-flyer {
+    width: 190px;
 
-margin-bottom:40px;
+    right: -35px;
+    bottom: 3%;
 
-}
+    opacity: 0.1;
+  }
 
 
+  /* ========================================
+     Navigation
+  ======================================== */
 
-.sns-links a{
+  .tab-nav {
+    /*
+      スマホではタブを横スクロール
+      左端・右端が見切れないようにする
+    */
+    justify-content: flex-start;
 
-padding:8px 16px;
+    width: 100%;
 
-}
+    padding: 9px 10px;
 
+    overflow-x: auto;
+    overflow-y: hidden;
 
+    scrollbar-width: none;
 
-.profile-image img{
+    -webkit-overflow-scrolling: touch;
 
-width:180px;
+    /*
+      スクロール開始位置の余白
+    */
+    scroll-padding-left: 10px;
+    scroll-padding-right: 10px;
+  }
 
-height:180px;
+  .tab-nav::-webkit-scrollbar {
+    display: none;
+  }
 
-}
+  .tab-nav a {
+    flex: 0 0 auto;
 
+    display: block;
 
+    padding: 8px 14px;
 
-footer{
+    font-size: 0.8rem;
 
-padding:40px 20px;
+    white-space: nowrap;
+  }
 
-}
 
+  /* ========================================
+     Section
+  ======================================== */
 
-.loading-text h1{
+  .section {
+    width:
+      min(100% - 28px, 1100px);
 
-font-size:50px;
+    padding: 80px 0;
+  }
 
-}
+  .section h2 {
+    margin-bottom: 38px;
 
+    font-size: 1.9rem;
+  }
 
-}
 
-/* ===== MIX WORKS 横スクロール ===== */
+  /* ========================================
+     Info
+  ======================================== */
 
-.works-scroll{
+  .info-card {
+    display: block;
 
-display:flex;
+    padding: 18px;
+  }
 
-gap:20px;
+  .info-card p {
+    padding: 18px 12px;
+  }
 
-overflow-x:auto;
+  .info-card p:nth-last-child(-n + 2) {
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.12);
+  }
 
-padding:10px 5px 20px;
+  .info-card p:last-child {
+    border-bottom: none;
+  }
 
-scroll-snap-type:x mandatory;
 
-scroll-behavior:smooth;
+  /* ========================================
+     Flyer
+  ======================================== */
 
-}
+  .flyer-card {
+    width: 100%;
+  }
 
+  .flyer-open {
+    border-radius: 18px;
+  }
 
-.works-scroll iframe{
+  .flyer-hint {
+    right: 12px;
+    bottom: 12px;
 
-width:300px;
+    padding: 6px 10px;
 
-flex:0 0 300px;
+    font-size: 0.65rem;
+  }
 
-aspect-ratio:16/9;
+  .flyer-modal {
+    padding: 20px;
+  }
 
-border:none;
+  .flyer-modal-image {
+    max-width: 94vw;
+    max-height: 85vh;
 
-border-radius:16px;
+    border-radius: 8px;
+  }
 
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+  .flyer-close {
+    top: 12px;
+    right: 12px;
 
-scroll-snap-align:start;
+    width: 44px;
+    height: 44px;
 
-}
+    font-size: 1.7rem;
+  }
 
 
-/* スクロールバー */
+  /* ========================================
+     Timeline
+  ======================================== */
 
-.works-scroll::-webkit-scrollbar{
+  .timeline {
+    padding-left: 45px;
+  }
 
-height:6px;
+  .timeline::before {
+    left: 14px;
+  }
 
-}
+  .timeline-item {
+    grid-template-columns: 1fr;
 
+    gap: 2px;
 
-@media(max-width:768px){
+    margin-bottom: 18px;
 
-.works-scroll iframe{
+    padding: 17px;
+  }
 
-flex:0 0 85%;
+  .timeline-item::before {
+    left: -38px;
 
-}
+    top: 23px;
+  }
 
-}
+  .timeline-item span {
+    font-size: 1.05rem;
+  }
 
-/* ===== WORKS ARROW ===== */
+  .timeline-item p {
+    font-size: 0.9rem;
+  }
 
-.works-container{
 
-position:relative;
+  /* ========================================
+     Enjoy
+  ======================================== */
 
-}
+  .enjoy-grid {
+    grid-template-columns: 1fr;
 
+    gap: 20px;
+  }
 
-.works-arrow{
+  .event-card {
+    border-radius: 18px;
+  }
 
-position:absolute;
+  .event-card img {
+    aspect-ratio: 16 / 9;
+  }
 
-top:50%;
 
-transform:translateY(-50%);
+  /* ========================================
+     Entry
+  ======================================== */
 
-width:40px;
+  .entry-card {
+    padding: 28px 20px;
+  }
 
-height:40px;
 
-border-radius:50%;
+  /* ========================================
+     Notice
+  ======================================== */
 
-border:none;
+  .notice-list {
+    padding: 18px 20px;
+  }
 
-background:rgba(255,255,255,.8);
+  .notice-list li {
+    padding-left: 27px;
 
-color:#8a9aa7;
+    font-size: 0.9rem;
+  }
 
-font-size:30px;
 
-cursor:pointer;
+  /* ========================================
+     Map
+  ======================================== */
 
-z-index:5;
+  .map-container iframe {
+    min-height: 280px;
+  }
 
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+  .map-btn {
+    width: 100%;
 
-}
+    padding: 13px 20px;
+  }
 
 
-.works-arrow.left{
+  /* ========================================
+     Footer
+  ======================================== */
 
-left:-20px;
+  footer {
+    padding: 45px 20px;
+  }
 
 }
-
 
-.works-arrow.right{
 
-right:-20px;
+/* =========================================================
+   23. REDUCED MOTION
+   ========================================================= */
 
-}
+@media (prefers-reduced-motion: reduce) {
 
+  html {
+    scroll-behavior: auto;
+  }
 
-@media(max-width:768px){
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
 
-.works-arrow{
+    animation-iteration-count: 1 !important;
 
-display:none;
-
-}
+    transition-duration: 0.01ms !important;
+  }
 
 }

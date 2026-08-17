@@ -1,438 +1,594 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>倫理 Official Site</title>
+  <title>垣花夏祭り2026</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- ========================================
+       Google Fonts
+  ======================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Yuji+Boku&display=swap"
+    rel="stylesheet"
+  >
 
-<link rel="stylesheet" href="css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 
 <body>
 
-<!-- ===== LOADING ===== -->
-<div id="loading">
-  <div class="loading-text">
-    <h1>倫理</h1>
-    <p>official site</p>
-  </div>
-</div>
-
-<!-- ===== HEADER（ハンバーガー対応済み） ===== -->
-<!-- ===== HEADER ===== -->
-<header>
-
-  <div class="logo">
-    <a href="#top">
-      <img src="images/logo.png" alt="倫理ロゴ">
-    </a>
+  <!-- ========================================
+       祭りの背景写真
+  ======================================== -->
+  <div class="matsuri-bg" aria-hidden="true">
+    <img
+      src="images/haikei.png"
+      alt=""
+    >
   </div>
 
 
-    <div class="hamburger" id="hamburger">
+  <!-- ========================================
+       Hero
+  ======================================== -->
+  <header class="hero">
 
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- 花火動画 -->
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="images/hanabi.mp4" type="video/mp4">
+    </video>
+
+    <!-- 動画の上のフィルター -->
+    <div class="hero-overlay"></div>
+
+    <!-- フライヤー -->
+    <img
+      src="images/flyer.png"
+      alt="垣花夏祭り2026"
+      class="hero-flyer"
+    >
+
+    <!-- Hero文字 -->
+    <div class="hero-content">
+
+      <h1>垣花夏祭り2026</h1>
+
+      <p class="hero-date">
+        2026.09.19(土)
+      </p>
+
+      <p class="hero-time">
+        14:00〜20:00
+      </p>
+
+      <p class="hero-place">
+        垣花農村公園
+      </p>
+
+      <a href="#overview" class="hero-btn">
+        開催概要を見る
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ========================================
+       Navigation
+  ======================================== -->
+  <nav class="tab-nav">
+
+    <a href="#overview">開催概要</a>
+    <a href="#program">プログラム</a>
+    <a href="#enjoy">お楽しみ</a>
+    <a href="#entry">お申し込み</a>
+    <a href="#notice">注意事項</a>
+    <a href="#access">アクセス</a>
+
+  </nav>
+
+
+  <!-- ========================================
+       開催概要
+  ======================================== -->
+  <section id="overview" class="section">
+
+    <h2>開催概要</h2>
+
+    <!-- フライヤー -->
+    <div class="flyer-card">
+
+      <button
+        class="flyer-open"
+        type="button"
+        aria-label="フライヤーを拡大表示"
+      >
+
+        <img
+          src="images/flyer.png"
+          alt="垣花夏祭り2026 フライヤー"
+        >
+
+        <span class="flyer-hint">
+          TAP TO VIEW
+        </span>
+
+      </button>
 
     </div>
 
 
-  <nav id="nav">
+    <!-- 開催情報 -->
+    <div class="info-card">
+
+      <p>
+        <strong>イベント名</strong><br>
+        垣花夏祭り2026
+      </p>
+
+      <p>
+        <strong>開催日</strong><br>
+        2026年9月19日(土)
+      </p>
+
+      <p>
+        <strong>時間</strong><br>
+        14:00〜20:00
+      </p>
+
+      <p>
+        <strong>会場</strong><br>
+        垣花農村公園
+      </p>
+
+      <p>
+        <strong>主催</strong><br>
+        垣花区
+      </p>
+
+      <!-- 協賛 -->
+      <p>
+        <strong>協賛</strong><br>
+
+        <a
+          href="https://www.orionbeer.co.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sponsor-link"
+        >
+          オリオンビール ↗
+        </a>
+
+        <br>
+
+        <a
+          href="https://taragawa.co.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sponsor-link"
+        >
+          多良川 ↗
+        </a>
+
+      </p>
+
+      <p>
+        <strong>雨天時</strong><br>
+        9月26日(土)へ延期
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================
+       フライヤー拡大表示
+  ======================================== -->
+  <div
+    class="flyer-modal"
+    id="flyerModal"
+  >
 
-    <a href="#news">NEWS</a>
-    <a href="#profile">PROFILE</a>
-    <a href="#cover">COVER</a>
-    <a href="#schedule">SCHEDULE</a>
-  <a href="#service">MIX SERVICE</a>
-    <a href="#contact">CONTACT</a>
+    <button
+      class="flyer-close"
+      type="button"
+      aria-label="閉じる"
+    >
+      ×
+    </button>
 
-  </nav>
+    <img
+      src="images/flyer.png"
+      alt="垣花夏祭り2026 フライヤー"
+      class="flyer-modal-image"
+    >
 
-</header>
+  </div>
 
-<div class="overlay" id="overlay"></div>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
+  <!-- ========================================
+       プログラム
+  ======================================== -->
+  <section id="program" class="section">
 
-<div class="hero-text">
+    <h2>プログラム</h2>
 
-<h1>倫理</h1>
+    <div class="timeline">
 
-<p class="sub">Singer / Mix Engineer</p>
+      <div class="timeline-item">
+        <span>14:00</span>
+        <p>開会宣言・棒術（青年会）</p>
+      </div>
 
-<p>歌ってみた・MIX依頼受付中</p>
+      <div class="timeline-item">
+        <span>14:30</span>
+        <p>カラオケ大会</p>
+      </div>
 
-<p>透明感のある歌声と唯一無二のアレンジを届ける。</p>
+      <div class="timeline-item">
+        <span>15:30</span>
+        <p>浴衣ファッションショー</p>
+      </div>
 
-<div class="hero-buttons">
+      <div class="timeline-item">
+        <span>16:30</span>
+        <p>出し物（こども会）</p>
+      </div>
 
-<a href="https://x.com/ornkms" target="_blank" class="btn">X</a>
-<a href="https://youtube.com/@yt-ornkms" target="_blank" class="btn">YouTube</a>
-<a href="#contact" class="btn">Contact</a>
+      <div class="timeline-item">
+        <span>17:00</span>
+        <p>出し物（みどり会）</p>
+      </div>
 
-</div>
+      <div class="timeline-item">
+        <span>18:00</span>
+        <p>盆踊り（女性会）</p>
+      </div>
 
-</div>
+      <div class="timeline-item">
+        <span>19:15</span>
+        <p>民謡ショー</p>
+      </div>
 
-<div class="hero-image">
-<img src="images/visual.png" alt="倫理">
-</div>
+      <!-- 花火大会 -->
+      <div class="timeline-item fireworks">
+        <span>19:50</span>
+        <p>花火大会（青年会）</p>
+      </div>
 
-</section>
+      <div class="timeline-item">
+        <span>20:00</span>
+        <p>区長挨拶</p>
+      </div>
 
-<!-- ===== NEWS ===== -->
-<section id="news" class="news fadein">
+    </div>
 
-<h2 class="section-title">NEWS</h2>
+  </section>
 
-<div class="news-list">
 
+  <!-- ========================================
+       お楽しみ
+  ======================================== -->
+  <section id="enjoy" class="section">
 
-<div class="news-card">
-<p class="news-tag">RELEASE</p>
-<p class="news-date">2026.07.26</p>
-<p class="news-text">歌ってみた「DAYBREAK FRONTLINE」投稿</p>
-</div>
+    <h2>お楽しみ</h2>
 
-<div class="news-card live">
-<img src="images/flyer.png" class="news-flyer">
-<p class="news-tag">LIVE</p>
-<p class="news-date">2026.06.12</p>
-<p class="news-text">ライブ「Euphoria」出演決定</p>
-</div>
+    <div class="enjoy-grid">
 
-<div class="news-card new">
-<p class="news-tag">NEW</p>
-<p class="news-date">2026.07.06</p>
-<p class="news-text">Official Site OPEN</p>
-</div>
 
-</div>
+      <!-- 屋台 -->
+      <div class="event-card">
 
-</section>
+        <img
+          src="images/yatai.png"
+          alt="屋台"
+        >
 
-<!-- ===== PROFILE ===== -->
-<section id="profile" class="fadein">
+        <div class="event-card-content">
 
-<h2 class="section-title">PROFILE</h2>
+          <h3>屋台</h3>
 
-<div class="profile-wrap">
+          <p>
+            お祭りならではの美味しい屋台が並びます🍧
+          </p>
 
-<div class="profile-image">
-<img src="images/profile.png">
-</div>
+        </div>
 
-<div class="profile-text">
+      </div>
 
-<h3>倫理</h3>
 
-<p>2025年5月1日歌い手として活動開始</p>
-<p>2026年5月からはMIX師としての活動も開始</p>
-<p>ライブ出演・MIX依頼受付中</p>
+      <!-- カラオケ大会 -->
+      <div class="event-card">
 
-<div class="sns-links">
-<a href="https://x.com/ornkms">Main X</a>
-<a href="https://x.com/ornkms">Sub X</a>
-<a href="https://youtube.com/@yt-ornkms">YouTube</a>
-</div>
+        <img
+          src="images/karaoke.png"
+          alt="カラオケ大会"
+        >
 
-</div>
+        <div class="event-card-content">
 
-</div>
+          <h3>カラオケ大会</h3>
 
-</section>
+          <p>
+            自慢の歌声を披露しよう🎤
+          </p>
 
-<!-- ===== COVER ===== -->
-<section id="cover" class="fadein">
+        </div>
 
-<h2 class="section-title">COVER SONG</h2>
+      </div>
 
 
+      <!-- 浴衣ファッションショー -->
+      <div class="event-card">
 
-<div class="video-grid">
+        <img
+          src="images/yukata.png"
+          alt="浴衣ファッションショー"
+        >
 
-  <!-- 最新 -->
- <div class="latest-frame">
+        <div class="event-card-content">
 
-  <iframe
-  src="https://www.youtube.com/embed/videoseries?list=UU81Iw7rx0aNSyP6L-fgZgrQ">
-  </iframe>
+          <h3>浴衣ファッションショー</h3>
 
+          <p>
+            お気に入りの浴衣で参加しよう👘
+          </p>
 
+        </div>
 
+      </div>
 
 
-  <span class="new-badge">NEW</span>
+      <!-- 民謡ショー -->
+      <div class="event-card">
 
-</div>
+        <img
+          src="images/minyou.png"
+          alt="民謡ショー"
+        >
 
-  <!-- おすすめ -->
-  <iframe src="https://www.youtube.com/embed/KM0gymh4wNY"></iframe>
-  <iframe src="https://www.youtube.com/embed/RFtnmUMeyjg"></iframe>
-  <iframe src="https://www.youtube.com/embed/eug6li2CYXc"></iframe>
+        <div class="event-card-content">
 
-</div>
-</section>
+          <h3>民謡ショー</h3>
 
-<!-- ===== SCHEDULE ===== -->
-<section id="schedule" class="fadein">
+          <p>
+            フードやドリンクを楽しみながら♫
+          </p>
 
-<h2 class="section-title">LIVE SCHEDULE</h2>
+        </div>
 
-<div class="schedule-box">
+      </div>
 
-<div class="live-card">
-<p class="live-date">2026.09.23 WED</p>
-<p class="live-title">coming soon...</p>
-<p class="live-place">都内</p>
-</div>
 
-<div class="live-card">
-<p class="live-date">2026.10.17 SAT</p>
-<p class="live-title">coming soon...</p>
-<p class="live-place">都内</p>
-</div>
+      <!-- 花火大会 -->
+      <div class="event-card">
 
-<div class="live-card">
-<p class="live-date">2026.01.03 SUN</p>
-<p class="live-title">coming soon...</p>
-<p class="live-place">都内</p>
-</div>
+        <img
+          src="images/hanabi.png"
+          alt="花火大会"
+        >
 
+        <div class="event-card-content">
 
-</div>
+          <h3>花火大会</h3>
 
-</section>
+          <p>
+            祭りの最後を彩るフィナーレ🎆
+          </p>
 
+        </div>
 
+      </div>
 
+    </div>
 
-<!-- ===== SERVICE ===== -->
-<section id="service" class="fadein">
+  </section>
 
-<h2 class="section-title">
-MIX SERVICE
-</h2>
 
+  <!-- ========================================
+       お申し込み
+  ======================================== -->
+  <section id="entry" class="section">
 
-<div class="service-block">
+    <h2>お申し込み</h2>
 
+    <div class="entry-card">
 
-<h3>
-<span>01</span> / SAMPLE
-</h3>
+      <!-- カラオケ -->
+      <h3>🎤 カラオケ大会</h3>
 
-<div class="works-container">
+      <a
+        href="pdf/カラオケ大会エントリーシート.pdf"
+        class="download-btn"
+        download
+      >
+        申込書をダウンロード
+      </a>
 
-<button class="works-arrow left">‹</button>
 
-<div class="works-scroll">
+      <!-- 浴衣 -->
+      <h3>👘 浴衣コンテスト</h3>
 
-<iframe src="https://www.youtube.com/embed/J2NoUg-p2CY" loading="lazy"></iframe>
+      <a
+        href="pdf/浴衣コンテストエントリーシート.pdf"
+        class="download-btn"
+        download
+      >
+        申込書をダウンロード
+      </a>
 
-<iframe src="https://www.youtube.com/embed/M48Wm8XKFCU" loading="lazy"></iframe>
+    </div>
 
-<iframe src="https://www.youtube.com/embed/KM0gymh4wNY" loading="lazy"></iframe>
+  </section>
 
-<iframe src="https://www.youtube.com/embed/QPWmrfAD4TI" loading="lazy"></iframe>
 
-<iframe src="https://www.youtube.com/embed/rTUuxNVJVds" loading="lazy"></iframe>
+  <!-- ========================================
+       注意事項
+  ======================================== -->
+  <section id="notice" class="section">
 
-<iframe src="https://www.youtube.com/embed/eug6li2CYXc" loading="lazy"></iframe>
+    <h2>注意事項</h2>
 
-<iframe src="https://www.youtube.com/embed/RFtnmUMeyjg" loading="lazy"></iframe>
+    <ul class="notice-list">
 
-<iframe src="https://www.youtube.com/embed/-xKeZpd-x00" loading="lazy"></iframe>
+      <li>
+        雨天時は9月26日(土)へ延期となります。
+      </li>
 
-<iframe src="https://www.youtube.com/embed/my4asGB1124" loading="lazy"></iframe>
+      <li>
+        ゴミは所定の場所へお捨てください。
+      </li>
 
-<iframe src="https://www.youtube.com/embed/nKpNM2UKhD4" loading="lazy"></iframe>
+      <li>
+        小さなお子さまから目を離さないようお願いします。
+      </li>
 
-</div>
+      <li>
+        駐車場は係員の案内に従ってご利用ください。
+      </li>
 
-<button class="works-arrow right">›</button>
+    </ul>
 
-</div>
+  </section>
 
-<h3 class="price-title">
-<span>02</span> / PRICE
-</h3>
 
+  <!-- ========================================
+       アクセス
+  ======================================== -->
+  <section id="access" class="section">
 
-<div class="price-card">
+    <h2>アクセス</h2>
 
-<img src="images/price.png">
+    <div class="access-card">
 
-</div>
+      <p>
+        垣花農村公園
+      </p>
 
+      <p class="access-address">
+        〒901-0601<br>
+        沖縄県南城市玉城垣花169
+      </p>
 
-</div>
 
-</section>
+      <!-- Google Map -->
+      <div class="map-container">
 
+        <iframe
+          src="https://www.google.com/maps?q=26.1500717,127.7940527&z=17&output=embed"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
 
+      </div>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="fadein">
 
-<h2 class="section-title">CONTACT</h2>
+      <!-- Google Mapで開く -->
+      <a
+        href="https://maps.app.goo.gl/Lrh7ZsBqRSoCc9Jr5"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="map-btn"
+      >
+        Googleマップで開く
+      </a>
 
-<p class="contact-text">MIX依頼・ライブ出演はこちら</p>
+    </div>
 
-<div class="contact-buttons">
+  </section>
 
-<a href="https://x.com/ornkms" class="btn">MIX依頼</a>
-<a href="mailto:ornkms@gmail.com" class="btn">出演依頼</a>
 
-</div>
+  <!-- ========================================
+       Footer
+  ======================================== -->
+  <footer>
 
-</section>
+    <p>
+      © 垣花夏祭り2026
+    </p>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-<h3>倫理</h3>
-<p>Singer / Mix Engineer</p>
-<p>© ORINKMS</p>
-</footer>
+    <p>
+      主催：垣花区
+    </p>
 
-<!-- ===== PARTICLES ===== -->
-<div id="tsparticles"></div>
+  </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
 
-<script>
-tsParticles.load("tsparticles",{
-particles:{
-number:{value:90},
-color:{value:["#dbe0e5","#cad8e1","#a5b9c7"]},
-move:{speed:0.5},
-size:{value:{min:1,max:4}},
-opacity:{value:0.8}
-}
-});
-</script>
+  <!-- ========================================
+       JavaScript
+       フライヤー拡大表示
+  ======================================== -->
+  <script>
 
-<!-- ===== FADE IN ===== -->
-<script>
-const targets = document.querySelectorAll('.fadein');
+    const flyerOpen =
+      document.querySelector(".flyer-open");
 
-const observer = new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
-});
-});
+    const flyerModal =
+      document.querySelector("#flyerModal");
 
-targets.forEach(target=>{
-observer.observe(target);
-});
-</script>
+    const flyerClose =
+      document.querySelector(".flyer-close");
 
-<!-- ===== LOADING ===== -->
-<script>
-window.addEventListener("load",()=>{
-setTimeout(()=>{
-document.getElementById("loading").classList.add("fade");
-},1800);
-});
-</script>
 
-<!-- ===== HAMBURGER MENU ===== -->
-<script>
-const hamburger = document.getElementById("hamburger");
-const nav = document.getElementById("nav");
-const overlay = document.getElementById("overlay");
+    /* フライヤーを開く */
 
-hamburger.addEventListener("click",()=>{
-hamburger.classList.toggle("active");
-nav.classList.toggle("open");
-overlay.classList.toggle("show");
-});
+    flyerOpen.addEventListener("click", () => {
 
-overlay.addEventListener("click",()=>{
-hamburger.classList.remove("active");
-nav.classList.remove("open");
-overlay.classList.remove("show");
-});
+      flyerModal.classList.add("is-open");
 
-document.querySelectorAll("nav a").forEach(link=>{
-link.addEventListener("click",()=>{
-hamburger.classList.remove("active");
-nav.classList.remove("open");
-overlay.classList.remove("show");
-});
-});
-</script>
-<script>
+      document.body.style.overflow = "hidden";
 
-for(let i=0;i<20;i++){
+    });
 
-const snow=document.createElement("div");
 
-snow.classList.add("snow");
+    /* ×ボタンで閉じる */
 
+    flyerClose.addEventListener("click", () => {
 
-const colors = [
-"#eefbff",
-"#e6f8ff",
-"#ddf4ff",
-"#d4f0ff"
-];
+      flyerModal.classList.remove("is-open");
 
-snow.style.color =
-colors[Math.floor(Math.random()*colors.length)];
+      document.body.style.overflow = "";
 
-const snowTypes = ["❅","❆"];
-snow.innerHTML =
-snowTypes[Math.floor(Math.random()*snowTypes.length)];
+    });
 
-snow.style.left=Math.random()*100+"vw";
 
-snow.style.fontSize=
-(Math.random()*20+15)+"px";
+    /* 背景タップで閉じる */
 
-snow.style.animationDuration=
-(Math.random()*10+10)+"s";
+    flyerModal.addEventListener("click", (e) => {
 
-snow.style.opacity =
-Math.random() * 0.4 + 0.6;
+      if (e.target === flyerModal) {
 
-document.body.appendChild(snow);
+        flyerModal.classList.remove("is-open");
 
-}
+        document.body.style.overflow = "";
 
-const works = document.querySelector(".works-scroll");
+      }
 
-document.querySelector(".works-arrow.right")
-.addEventListener("click",()=>{
+    });
 
-works.scrollBy({
-left:320,
-behavior:"smooth"
-});
+  </script>
 
-});
 
-
-document.querySelector(".works-arrow.left")
-.addEventListener("click",()=>{
-
-works.scrollBy({
-left:-320,
-behavior:"smooth"
-});
-
-});
-
-</script>
 </body>
 </html>
